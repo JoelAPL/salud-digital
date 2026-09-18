@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salud Digital - Últimas Novedades sobre Salud en Panamá</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- HEADER / NAVEGACIÓN -->
+    <header class="navbar">
+        <div class="container">
+            <div class="navbar-brand">
+                <h1>🏥 Salud Digital</h1>
+                <p class="tagline">Últimas Novedades sobre Salud en Panamá</p>
+            </div>
+            <nav class="menu">
+                <a href="index.html" class="active">Inicio</a>
+                <a href="#noticias">Noticias</a>
+                <a href="#estadisticas">Estadísticas</a>
+                <a href="#foro">Foro</a>
+                <a href="#" class="btn-login">Mi Perfil</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- BANNER PRINCIPAL -->
+    <section class="banner">
+        <div class="banner-content">
+            <h2>Mantente Informado sobre Salud</h2>
+            <p>Accede a las últimas noticias, estadísticas epidemiológicas y participa con la comunidad</p>
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Buscar noticias, enfermedades, estadísticas...">
+                <button onclick="buscar()">Buscar</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE NOTICIAS DESTACADAS -->
+    <section class="noticias-section">
+        <div class="container">
+            <h2>📰 Últimas Noticias de Salud</h2>
+            <div id="noticiasDestacadas" class="noticias-grid">
+                <!-- Las noticias se cargarán aquí con JavaScript -->
+            </div>
+            <div class="ver-mas">
+                <a href="#noticias" class="btn-primary">Ver todas las noticias</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE ESTADÍSTICAS -->
+    <section class="estadisticas-section">
+        <div class="container">
+            <h2>📊 Estadísticas de Salud por Región</h2>
+
+            <div class="filtros-estadisticas">
+                <div class="filtro">
+                    <label>Provincia:</label>
+                    <select id="provinciaSelect" onchange="filtrarEstadisticas()">
+                        <option value="">Todas las provincias</option>
+                        <option value="panama">Panamá</option>
+                        <option value="colon">Colón</option>
+                        <option value="chiriqui">Chiriquí</option>
+                        <option value="bocas">Bocas del Toro</option>
+                        <option value="veraguas">Veraguas</option>
+                        <option value="darién">Darién</option>
+                        <option value="herrera">Herrera</option>
+                        <option value="lossantos">Los Santos</option>
+                        <option value="emberá">Guna Yala</option>
+                    </select>
+                </div>
+                <div class="filtro">
+                    <label>Período:</label>
+                    <select id="periodoSelect" onchange="filtrarEstadisticas()">
+                        <option value="2024">2024</option>
+                        <option value="2025">2025</option>
+                        <option value="2026">2026</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="estadisticas-grid">
+                <div class="estadistica-card">
+                    <h3>Dengue</h3>
+                    <div class="stat-number" id="dengueCount">1,247</div>
+                    <p class="stat-label">casos reportados</p>
+                    <div class="stat-trend">↑ 8% vs. mes anterior</div>
+                </div>
+                <div class="estadistica-card">
+                    <h3>COVID-19</h3>
+                    <div class="stat-number" id="covidCount">342</div>
+                    <p class="stat-label">casos activos</p>
+                    <div class="stat-trend">↓ 3% vs. mes anterior</div>
+                </div>
+                <div class="estadistica-card">
+                    <h3>Influenza</h3>
+                    <div class="stat-number" id="influenzaCount">156</div>
+                    <p class="stat-label">casos detectados</p>
+                    <div class="stat-trend">↑ 12% vs. mes anterior</div>
+                </div>
+                <div class="estadistica-card">
+                    <h3>Tuberculosis</h3>
+                    <div class="stat-number" id="tbCount">89</div>
+                    <p class="stat-label">casos en tratamiento</p>
+                    <div class="stat-trend">→ Sin cambios</div>
+                </div>
+            </div>
+
+            <div class="estadisticas-detalle">
+                <h3>Detalle por Enfermedad - Provincia Seleccionada</h3>
+                <table id="estadisticasTable">
+                    <thead>
+                        <tr>
+                            <th>Enfermedad</th>
+                            <th>Casos</th>
+                            <th>Muertes</th>
+                            <th>En Recuperación</th>
+                            <th>Última Actualización</th>
+                        </tr>
+                    </thead>
+                    <tbody id="estadisticasBody">
+                        <!-- Se llena con datos -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE FORO DESTACADO -->
+    <section class="foro-section">
+        <div class="container">
+            <h2>💬 Comunidad - Temas Populares</h2>
+            <div id="temasDestacados" class="temas-grid">
+                <!-- Los temas se cargarán aquí -->
+            </div>
+            <div class="ver-mas">
+                <a href="#foro" class="btn-primary">Ir al Foro Completo</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE RECURSOS -->
+    <section class="recursos-section">
+        <div class="container">
+            <h2>📚 Recursos Útiles</h2>
+            <div class="recursos-grid">
+                <div class="recurso-card">
+                    <h3>🛡️ Prevención de Enfermedades</h3>
+                    <p>Guías completas sobre medidas preventivas y promoción de la salud.</p>
+                    <a href="#" class="btn-secondary">Ver recursos</a>
+                </div>
+                <div class="recurso-card">
+                    <h3>🩺 Información Médica</h3>
+                    <p>Artículos especializados y estudios sobre condiciones de salud.</p>
+                    <a href="#" class="btn-secondary">Ver recursos</a>
+                </div>
+                <div class="recurso-card">
+                    <h3>🏥 Centros de Salud</h3>
+                    <p>Directorio de hospitales, clínicas y centros de atención en Panamá.</p>
+                    <a href="#" class="btn-secondary">Ver recursos</a>
+                </div>
+                <div class="recurso-card">
+                    <h3>📞 Líneas de Emergencia</h3>
+                    <p>Contactos de emergencia y números importantes de salud.</p>
+                    <a href="#" class="btn-secondary">Ver recursos</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Salud Digital - Comunidad de Práctica en Salud. Universidad Tecnológica de Panamá.</p>
+            <div class="footer-links">
+                <a href="#">Privacidad</a>
+                <a href="#">Términos</a>
+                <a href="#">Contacto</a>
+                <a href="#">Redes Sociales</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
