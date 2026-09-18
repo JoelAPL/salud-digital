@@ -3,184 +3,216 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Salud Digital - Últimas Novedades sobre Salud en Panamá</title>
+    <title>Salud Digital · Vigilancia epidemiológica en Panamá</title>
+    <meta name="description" content="Comunidad de práctica en salud: noticias verificadas y cifras epidemiológicas oficiales del MINSA sobre dengue, influenza, malaria y leishmaniasis en Panamá.">
+    <meta name="theme-color" content="#0b6b5f">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230b6b5f'/><path d='M42 20h16v22h22v16H58v22H42V58H20V42h22z' fill='%23fff'/></svg>">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <!-- HEADER / NAVEGACIÓN -->
-    <header class="navbar">
-        <div class="container">
-            <div class="navbar-brand">
-                <h1>🏥 Salud Digital</h1>
-                <p class="tagline">Últimas Novedades sobre Salud en Panamá</p>
-            </div>
-            <nav class="menu">
-                <a href="index.html" class="active">Inicio</a>
+    <a href="#contenido" class="skip-link">Saltar al contenido</a>
+
+    <!-- ===== ENCABEZADO ===== -->
+    <header class="navbar" id="navbar">
+        <div class="container navbar-inner">
+            <a class="brand" href="#inicio">
+                <span class="brand-mark" aria-hidden="true">✚</span>
+                <span class="brand-text">
+                    <strong>Salud Digital</strong>
+                    <small>Vigilancia epidemiológica en Panamá</small>
+                </span>
+            </a>
+
+            <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="menu" aria-label="Abrir el menú">
+                <span></span><span></span><span></span>
+            </button>
+
+            <nav class="menu" id="menu" aria-label="Navegación principal">
+                <a href="#panorama">Panorama</a>
                 <a href="#noticias">Noticias</a>
                 <a href="#estadisticas">Estadísticas</a>
-                <a href="#foro">Foro</a>
-                <a href="#" class="btn-login">Mi Perfil</a>
+                <a href="#recursos">Recursos</a>
+                <a href="#foro">Comunidad</a>
             </nav>
         </div>
     </header>
 
-    <!-- BANNER PRINCIPAL -->
-    <section class="banner">
-        <div class="banner-content">
-            <h2>Mantente Informado sobre Salud</h2>
-            <p>Accede a las últimas noticias, estadísticas epidemiológicas y participa con la comunidad</p>
-            <div class="search-bar">
-                <input type="text" id="searchInput" placeholder="Buscar noticias, enfermedades, estadísticas...">
-                <button onclick="buscar()">Buscar</button>
-            </div>
-        </div>
-    </section>
+    <main id="contenido">
+        <!-- ===== PORTADA ===== -->
+        <section class="hero" id="inicio">
+            <div class="hero-media" aria-hidden="true"></div>
+            <div class="container hero-content">
+                <p class="hero-eyebrow" id="heroCorte">Datos oficiales del MINSA</p>
+                <h1>Las cifras de salud de Panamá, en un solo lugar</h1>
+                <p class="hero-lead">
+                    Reunimos los informes epidemiológicos semanales del Ministerio de Salud y las
+                    noticias que los reportan, con la fuente siempre a la vista.
+                </p>
 
-    <!-- SECCIÓN DE NOTICIAS DESTACADAS -->
-    <section class="noticias-section">
-        <div class="container">
-            <h2>📰 Últimas Noticias de Salud</h2>
-            <div id="noticiasDestacadas" class="noticias-grid">
-                <!-- Las noticias se cargarán aquí con JavaScript -->
-            </div>
-            <div class="ver-mas">
-                <a href="#noticias" class="btn-primary">Ver todas las noticias</a>
-            </div>
-        </div>
-    </section>
+                <form class="search-bar" id="searchForm" role="search">
+                    <label class="sr-only" for="searchInput">Buscar en noticias y temas de la comunidad</label>
+                    <input type="search" id="searchInput" placeholder="Buscar dengue, influenza, vacunación, malaria…" autocomplete="off">
+                    <button type="submit">Buscar</button>
+                </form>
 
-    <!-- SECCIÓN DE ESTADÍSTICAS -->
-    <section class="estadisticas-section">
-        <div class="container">
-            <h2>📊 Estadísticas de Salud por Región</h2>
-
-            <div class="filtros-estadisticas">
-                <div class="filtro">
-                    <label>Provincia:</label>
-                    <select id="provinciaSelect" onchange="filtrarEstadisticas()">
-                        <option value="">Todas las provincias</option>
-                        <option value="panama">Panamá</option>
-                        <option value="colon">Colón</option>
-                        <option value="chiriqui">Chiriquí</option>
-                        <option value="bocas">Bocas del Toro</option>
-                        <option value="veraguas">Veraguas</option>
-                        <option value="darién">Darién</option>
-                        <option value="herrera">Herrera</option>
-                        <option value="lossantos">Los Santos</option>
-                        <option value="emberá">Guna Yala</option>
-                    </select>
-                </div>
-                <div class="filtro">
-                    <label>Período:</label>
-                    <select id="periodoSelect" onchange="filtrarEstadisticas()">
-                        <option value="2024">2024</option>
-                        <option value="2025">2025</option>
-                        <option value="2026">2026</option>
-                    </select>
-                </div>
+                <p class="hero-note">
+                    Última actualización de los indicadores:
+                    <strong id="heroActualizado">—</strong>
+                </p>
             </div>
+        </section>
 
-            <div class="estadisticas-grid">
-                <div class="estadistica-card">
-                    <h3>Dengue</h3>
-                    <div class="stat-number" id="dengueCount">1,247</div>
-                    <p class="stat-label">casos reportados</p>
-                    <div class="stat-trend">↑ 8% vs. mes anterior</div>
+        <!-- ===== PANORAMA NACIONAL ===== -->
+        <section class="section" id="panorama">
+            <div class="container">
+                <div class="section-head">
+                    <div>
+                        <h2>Panorama nacional 2026</h2>
+                        <p class="section-sub" id="panoramaSub">Acumulado del año según el informe epidemiológico semanal.</p>
+                    </div>
+                    <a class="link-fuente" id="panoramaFuente" href="#" target="_blank" rel="noopener">Ver la fuente ↗</a>
                 </div>
-                <div class="estadistica-card">
-                    <h3>COVID-19</h3>
-                    <div class="stat-number" id="covidCount">342</div>
-                    <p class="stat-label">casos activos</p>
-                    <div class="stat-trend">↓ 3% vs. mes anterior</div>
-                </div>
-                <div class="estadistica-card">
-                    <h3>Influenza</h3>
-                    <div class="stat-number" id="influenzaCount">156</div>
-                    <p class="stat-label">casos detectados</p>
-                    <div class="stat-trend">↑ 12% vs. mes anterior</div>
-                </div>
-                <div class="estadistica-card">
-                    <h3>Tuberculosis</h3>
-                    <div class="stat-number" id="tbCount">89</div>
-                    <p class="stat-label">casos en tratamiento</p>
-                    <div class="stat-trend">→ Sin cambios</div>
-                </div>
-            </div>
 
-            <div class="estadisticas-detalle">
-                <h3>Detalle por Enfermedad - Provincia Seleccionada</h3>
-                <table id="estadisticasTable">
-                    <thead>
-                        <tr>
-                            <th>Enfermedad</th>
-                            <th>Casos</th>
-                            <th>Muertes</th>
-                            <th>En Recuperación</th>
-                            <th>Última Actualización</th>
-                        </tr>
-                    </thead>
-                    <tbody id="estadisticasBody">
-                        <!-- Se llena con datos -->
-                    </tbody>
-                </table>
+                <div class="indicadores-grid" id="indicadoresGrid"></div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- SECCIÓN DE FORO DESTACADO -->
-    <section class="foro-section">
-        <div class="container">
-            <h2>💬 Comunidad - Temas Populares</h2>
-            <div id="temasDestacados" class="temas-grid">
-                <!-- Los temas se cargarán aquí -->
-            </div>
-            <div class="ver-mas">
-                <a href="#foro" class="btn-primary">Ir al Foro Completo</a>
-            </div>
-        </div>
-    </section>
+        <!-- ===== NOTICIAS ===== -->
+        <section class="section section-alt" id="noticias">
+            <div class="container">
+                <div class="section-head">
+                    <div>
+                        <h2>Noticias verificadas</h2>
+                        <p class="section-sub">Cada nota enlaza a la publicación original del MINSA o del medio que la reportó.</p>
+                    </div>
+                    <div class="filtros-categoria" id="filtrosCategoria" role="group" aria-label="Filtrar noticias por tema"></div>
+                </div>
 
-    <!-- SECCIÓN DE RECURSOS -->
-    <section class="recursos-section">
-        <div class="container">
-            <h2>📚 Recursos Útiles</h2>
-            <div class="recursos-grid">
-                <div class="recurso-card">
-                    <h3>🛡️ Prevención de Enfermedades</h3>
-                    <p>Guías completas sobre medidas preventivas y promoción de la salud.</p>
-                    <a href="#" class="btn-secondary">Ver recursos</a>
-                </div>
-                <div class="recurso-card">
-                    <h3>🩺 Información Médica</h3>
-                    <p>Artículos especializados y estudios sobre condiciones de salud.</p>
-                    <a href="#" class="btn-secondary">Ver recursos</a>
-                </div>
-                <div class="recurso-card">
-                    <h3>🏥 Centros de Salud</h3>
-                    <p>Directorio de hospitales, clínicas y centros de atención en Panamá.</p>
-                    <a href="#" class="btn-secondary">Ver recursos</a>
-                </div>
-                <div class="recurso-card">
-                    <h3>📞 Líneas de Emergencia</h3>
-                    <p>Contactos de emergencia y números importantes de salud.</p>
-                    <a href="#" class="btn-secondary">Ver recursos</a>
-                </div>
+                <div id="noticiasGrid" class="noticias-grid"></div>
+                <p class="vacio" id="noticiasVacio" hidden>No hay noticias que coincidan con ese filtro.</p>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- FOOTER -->
+        <!-- ===== ESTADÍSTICAS ===== -->
+        <section class="section" id="estadisticas">
+            <div class="container">
+                <div class="section-head">
+                    <div>
+                        <h2>Dengue por región de salud</h2>
+                        <p class="section-sub" id="regionalCorte">—</p>
+                    </div>
+                    <a class="link-fuente" id="regionalFuente" href="#" target="_blank" rel="noopener">Ver la fuente ↗</a>
+                </div>
+
+                <div class="resumen-nacional" id="resumenNacional"></div>
+
+                <div class="tabla-controles">
+                    <label for="regionSelect">Región de salud</label>
+                    <select id="regionSelect"></select>
+                </div>
+
+                <div class="tabla-wrap">
+                    <table class="tabla">
+                        <caption class="sr-only">Casos de dengue por región de salud, 2026 frente a 2025</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">Región de salud</th>
+                                <th scope="col" class="num">Casos 2026</th>
+                                <th scope="col" class="num">Casos 2025</th>
+                                <th scope="col" class="num">Variación</th>
+                            </tr>
+                        </thead>
+                        <tbody id="regionalBody"></tbody>
+                    </table>
+                </div>
+                <p class="nota-tabla">Las regiones sin comparativo publicado se muestran con un guion en la columna de 2025.</p>
+
+                <h3 class="subtitulo">Defunciones por dengue según región</h3>
+                <p class="section-sub" id="defuncionesCorte">—</p>
+                <div class="barras" id="defuncionesBarras"></div>
+                <a class="link-fuente" id="defuncionesFuente" href="#" target="_blank" rel="noopener">Ver la fuente ↗</a>
+            </div>
+        </section>
+
+        <!-- ===== RECURSOS ===== -->
+        <section class="section section-alt" id="recursos">
+            <div class="container">
+                <div class="section-head">
+                    <div>
+                        <h2>Recursos oficiales</h2>
+                        <p class="section-sub">Teléfonos y sitios reales para consultar o pedir ayuda.</p>
+                    </div>
+                </div>
+                <div class="recursos-grid" id="recursosGrid"></div>
+            </div>
+        </section>
+
+        <!-- ===== COMUNIDAD ===== -->
+        <section class="section" id="foro">
+            <div class="container">
+                <div class="section-head">
+                    <div>
+                        <h2>Comunidad de práctica <span class="badge-demo">contenido de demostración</span></h2>
+                        <p class="section-sub">
+                            Así se verá el foro donde el personal de salud comparte su experiencia de campo.
+                            Los temas de abajo son de ejemplo; no son mensajes reales.
+                        </p>
+                    </div>
+                </div>
+                <div id="temasGrid" class="temas-grid"></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== PIE ===== -->
     <footer class="footer">
-        <div class="container">
-            <p>&copy; 2026 Salud Digital - Comunidad de Práctica en Salud. Universidad Tecnológica de Panamá.</p>
-            <div class="footer-links">
-                <a href="#">Privacidad</a>
-                <a href="#">Términos</a>
-                <a href="#">Contacto</a>
-                <a href="#">Redes Sociales</a>
+        <div class="container footer-inner">
+            <div class="footer-col">
+                <h3>Salud Digital</h3>
+                <p>Comunidad de práctica en salud. Proyecto académico de Desarrollo de Software 5, Universidad Tecnológica de Panamá.</p>
             </div>
+            <div class="footer-col">
+                <h3>Fuentes de los datos</h3>
+                <ul>
+                    <li><a href="https://www.minsa.gob.pa/informacion-salud/dengue-2026" target="_blank" rel="noopener">MINSA · Dengue 2026</a></li>
+                    <li><a href="https://www.gorgas.gob.pa/" target="_blank" rel="noopener">Instituto Conmemorativo Gorgas</a></li>
+                    <li><a href="https://www.paho.org/es/panama" target="_blank" rel="noopener">OPS/OMS Panamá</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Equipo</h3>
+                <ul>
+                    <li>Joel Alvarez</li>
+                    <li>Luis Rivera</li>
+                    <li>Emmanuel Concepción</li>
+                </ul>
+            </div>
+        </div>
+        <div class="container footer-legal">
+            <p>
+                Sitio informativo sin fines comerciales. No sustituye la consulta médica.
+                Las fotografías son de dominio público o de licencia libre; el detalle está en
+                <a href="CREDITS.md">CREDITS.md</a>.
+            </p>
         </div>
     </footer>
+
+    <!-- ===== MODAL DE NOTICIA ===== -->
+    <div class="modal" id="modal" hidden>
+        <div class="modal-backdrop" data-cerrar></div>
+        <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitulo">
+            <button class="modal-cerrar" data-cerrar aria-label="Cerrar">×</button>
+            <img id="modalImagen" alt="">
+            <p class="modal-credito" id="modalCredito"></p>
+            <div class="modal-cuerpo">
+                <span class="chip" id="modalCategoria"></span>
+                <h2 id="modalTitulo"></h2>
+                <p class="modal-meta" id="modalMeta"></p>
+                <p id="modalResumen"></p>
+                <a class="btn-primary" id="modalEnlace" href="#" target="_blank" rel="noopener">Leer la publicación original ↗</a>
+            </div>
+        </div>
+    </div>
 
     <script src="js/data.js"></script>
     <script src="js/main.js"></script>
