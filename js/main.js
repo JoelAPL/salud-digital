@@ -219,9 +219,9 @@
     }
 
     function pintarTemas() {
-        $('#temasGrid').innerHTML = temasForo.map(function (t) {
+        $('#temasGrid').innerHTML = temasForo.slice(0, 3).map(function (t) {
             return '<article class="tema">' +
-                '<h3>' + esc(t.titulo) + '</h3>' +
+                '<h3><a class="tema-enlace" href="publicacion.html?id=' + t.id + '">' + esc(t.titulo) + '</a></h3>' +
                 '<p class="tema-autor">' + esc(t.autor) + '</p>' +
                 '<p class="tema-meta">' +
                     '<span>' + fecha(t.fecha) + '</span>' +
@@ -310,37 +310,6 @@
             if (e.key === 'Escape' && !$('#modal').hidden) cerrarModal();
         });
 
-        // Menú en pantallas pequeñas.
-        var toggle = $('#navToggle');
-        toggle.addEventListener('click', function () {
-            var abierto = $('#menu').classList.toggle('abierto');
-            toggle.setAttribute('aria-expanded', abierto);
-            toggle.setAttribute('aria-label', abierto ? 'Cerrar el menú' : 'Abrir el menú');
-        });
-        $('#menu').addEventListener('click', function (e) {
-            if (e.target.tagName === 'A') {
-                $('#menu').classList.remove('abierto');
-                toggle.setAttribute('aria-expanded', 'false');
-            }
-        });
-
-        // Sombra del encabezado al desplazar.
-        window.addEventListener('scroll', function () {
-            $('#navbar').classList.toggle('con-sombra', window.scrollY > 8);
-        }, { passive: true });
-
-        // Marca en el menú la sección que se está viendo.
-        var secciones = Array.prototype.slice.call(
-            document.querySelectorAll('main section[id]')
-        );
-        var observador = new IntersectionObserver(function (entradas) {
-            entradas.forEach(function (en) {
-                if (!en.isIntersecting) return;
-                document.querySelectorAll('#menu a').forEach(function (a) {
-                    a.classList.toggle('activo', a.getAttribute('href') === '#' + en.target.id);
-                });
-            });
-        }, { rootMargin: '-45% 0px -50% 0px' });
-        secciones.forEach(function (s) { observador.observe(s); });
+        // El menú, la sombra del encabezado y la sesión viven en comun.js.
     });
 })();
