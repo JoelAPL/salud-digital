@@ -260,10 +260,125 @@ const recursos = [
 // No son mensajes reales. Se muestran con la etiqueta "demostración" en la
 // interfaz para no confundirlos con los datos oficiales de arriba.
 const temasForo = [
-    { id: 1, titulo: 'Cómo organizamos el operativo de eliminación de criaderos en el barrio', autor: 'Promotora de salud', fecha: '2026-09-15', respuestas: 8, vistas: 234 },
-    { id: 2, titulo: 'Qué hacer cuando un paciente con dengue presenta signos de alarma', autor: 'Enfermero de urgencias', fecha: '2026-09-12', respuestas: 15, vistas: 456 },
-    { id: 3, titulo: 'Estrategias que funcionaron para vacunar a adultos mayores contra la influenza', autor: 'Equipo de vacunación', fecha: '2026-09-09', respuestas: 12, vistas: 389 },
-    { id: 4, titulo: 'Diagnóstico de malaria en comunidades de difícil acceso: nuestra experiencia', autor: 'Técnica de laboratorio', fecha: '2026-09-04', respuestas: 6, vistas: 178 },
-    { id: 5, titulo: 'Cómo explicamos la leishmaniasis cutánea sin alarmar a la familia', autor: 'Médico general', fecha: '2026-08-30', respuestas: 9, vistas: 298 },
-    { id: 6, titulo: 'Errores comunes al llenar la ficha epidemiológica del caso', autor: 'Estadístico de región', fecha: '2026-08-26', respuestas: 18, vistas: 567 }
+    {
+        id: 1, categoria: 'Dengue',
+        titulo: 'Cómo organizamos el operativo de eliminación de criaderos en el barrio',
+        autor: 'Promotora de salud', fecha: '2026-09-15', respuestas: 8, vistas: 234, util: 21,
+        resumen: 'Dividimos el barrio en cuadrantes y cada equipo llevó una lista de verificación casa por casa.',
+        contenido: [
+            'Dividimos el barrio en seis cuadrantes y a cada equipo de dos personas le asignamos uno. Cada equipo llevó una lista de verificación impresa con los criaderos más comunes: llantas, tanques sin tapa, floreros, canales de techo y recipientes olvidados en patios.',
+            'Lo que mejor funcionó fue avisar con dos días de anticipación por el grupo de la junta comunal. Las familias abrieron la puerta porque sabían quiénes éramos y a qué íbamos.',
+            'Al final del día consolidamos las listas en una hoja de cálculo para saber qué cuadrantes necesitaban una segunda visita. ¿Alguien tiene un formato de lista que le haya funcionado mejor?'
+        ]
+    },
+    {
+        id: 2, categoria: 'Dengue',
+        titulo: 'Qué hacer cuando un paciente con dengue presenta signos de alarma',
+        autor: 'Enfermero de urgencias', fecha: '2026-09-12', respuestas: 15, vistas: 456, util: 38,
+        resumen: 'Resumen del manejo inicial en el primer nivel mientras se coordina el traslado.',
+        contenido: [
+            'Comparto el orden en que actuamos en el cuarto de urgencias cuando un paciente con sospecha de dengue llega con dolor abdominal intenso, vómitos persistentes o sangrado de mucosas.',
+            'Primero registramos signos vitales y hematocrito de base, luego iniciamos la hidratación según la guía nacional y coordinamos el traslado si no hay mejoría. Documentar la hora de cada paso nos ayudó mucho en las auditorías.',
+            'Esto no reemplaza la guía oficial del MINSA; es la forma en que la aplicamos en nuestro turno.'
+        ]
+    },
+    {
+        id: 3, categoria: 'Vacunación',
+        titulo: 'Estrategias que funcionaron para vacunar a adultos mayores contra la influenza',
+        autor: 'Equipo de vacunación', fecha: '2026-09-09', respuestas: 12, vistas: 389, util: 27,
+        resumen: 'Puestos móviles en iglesias y horarios temprano en la mañana aumentaron la cobertura.',
+        contenido: [
+            'Este año llevamos la vacuna a los lugares donde los adultos mayores ya se reúnen: iglesias, centros de jubilados y ferias de salud.',
+            'Abrimos los puestos a las siete de la mañana, antes del calor, y pedimos a los promotores que confirmaran la asistencia un día antes.'
+        ]
+    },
+    {
+        id: 4, categoria: 'Malaria',
+        titulo: 'Diagnóstico de malaria en comunidades de difícil acceso: nuestra experiencia',
+        autor: 'Técnica de laboratorio', fecha: '2026-09-04', respuestas: 6, vistas: 178, util: 15,
+        resumen: 'Cómo conservamos las muestras de gota gruesa durante traslados de varias horas.',
+        contenido: [
+            'En las giras a comunidades sin laboratorio tomamos la gota gruesa en el sitio y la protegemos del polvo y la humedad durante el traslado.',
+            'Las pruebas rápidas nos permiten iniciar tratamiento el mismo día, y la lámina confirma la especie cuando volvemos al laboratorio.'
+        ]
+    },
+    {
+        id: 5, categoria: 'Leishmaniasis',
+        titulo: 'Cómo explicamos la leishmaniasis cutánea sin alarmar a la familia',
+        autor: 'Médico general', fecha: '2026-08-30', respuestas: 9, vistas: 298, util: 19,
+        resumen: 'Usamos fotos del proceso de cicatrización para explicar que el tratamiento funciona.',
+        contenido: [
+            'La lesión asusta mucho a las familias. Nos ayudó mostrar fotos de otros casos en distintas etapas del tratamiento, con permiso de los pacientes.',
+            'También explicamos desde el principio cuánto dura el tratamiento para que nadie lo abandone a la mitad.'
+        ]
+    },
+    {
+        id: 6, categoria: 'Vigilancia epidemiológica',
+        titulo: 'Errores comunes al llenar la ficha epidemiológica del caso',
+        autor: 'Estadístico de región', fecha: '2026-08-26', respuestas: 18, vistas: 567, util: 44,
+        resumen: 'Fechas de inicio de síntomas vacías y direcciones incompletas son los errores más frecuentes.',
+        contenido: [
+            'Revisando las fichas del último trimestre, los errores que más se repiten son la fecha de inicio de síntomas vacía y la dirección sin corregimiento.',
+            'Sin esos dos datos no podemos ubicar el caso en la semana epidemiológica correcta ni en el mapa de la región.'
+        ]
+    }
+];
+
+// ---- Respuestas de demostración para la vista de una publicación ----
+const respuestasForo = {
+    1: [
+        { autor: 'Inspector de vectores', fecha: '2026-09-15', texto: 'Nosotros agregamos una columna para anotar si la casa estaba cerrada. Así la segunda visita se programa sola.', util: 6 },
+        { autor: 'Estudiante de enfermería', fecha: '2026-09-16', texto: '¿Podrías compartir la lista en el repositorio de recursos? Nos serviría para la práctica comunitaria.', util: 2,
+          respuestas: [
+              { autor: 'Promotora de salud', fecha: '2026-09-16', texto: 'Claro, la subo esta semana en la sección de recursos.', util: 3 }
+          ] },
+        { autor: 'Docente de salud pública', fecha: '2026-09-17', texto: 'Buen ejemplo de trabajo por cuadrantes. Sugiero registrar también la cantidad de recipientes eliminados para medir el impacto.', util: 9, mejor: true }
+    ],
+    2: [
+        { autor: 'Médica de turno', fecha: '2026-09-12', texto: 'Coincido en documentar la hora de cada paso. También dejamos escrito el hematocrito de control.', util: 7, mejor: true },
+        { autor: 'Estudiante de medicina', fecha: '2026-09-13', texto: '¿Cada cuánto repiten el hematocrito en la fase crítica?', util: 1 }
+    ]
+};
+
+// ---- Catálogo de temas de la comunidad ----
+// Las claves sirven para contar las noticias relacionadas con cada tema.
+const temasCatalogo = [
+    { id: 'dengue', nombre: 'Dengue', icono: '🦟', claves: ['dengue'],
+      descripcion: 'Vigilancia de casos, signos de alarma, control del vector y eliminación de criaderos.' },
+    { id: 'influenza', nombre: 'Influenza', icono: '🤧', claves: ['influenza', 'gripal'],
+      descripcion: 'Temporada respiratoria, síndrome gripal e infecciones respiratorias agudas graves.' },
+    { id: 'malaria', nombre: 'Malaria', icono: '🔬', claves: ['malaria'],
+      descripcion: 'Diagnóstico en comunidades de difícil acceso, tratamiento completo y seguimiento.' },
+    { id: 'leishmaniasis', nombre: 'Leishmaniasis', icono: '🩹', claves: ['leishmaniasis'],
+      descripcion: 'Forma cutánea y visceral, educación a la familia y adherencia al tratamiento.' },
+    { id: 'vacunacion', nombre: 'Vacunación', icono: '💉', claves: ['vacuna'],
+      descripcion: 'Campañas, puestos móviles y estrategias para llegar a los grupos de riesgo.' },
+    { id: 'vigilancia', nombre: 'Vigilancia epidemiológica', icono: '📊', claves: ['vigilancia', 'semana epidemiológica'],
+      descripcion: 'Fichas de notificación, calidad del dato y lectura del informe semanal.' }
+];
+
+// ---- Material compartido por la comunidad (demostración) ----
+const materialComunidad = [
+    { id: 1, tipo: 'PDF', tema: 'Dengue', titulo: 'Guía rápida de signos de alarma en dengue para el primer nivel',
+      autor: 'Enfermero de urgencias', fecha: '2026-09-10', tamano: '1.2 MB', descargas: 48 },
+    { id: 2, tipo: 'Presentación', tema: 'Dengue', titulo: 'Charla comunitaria sobre eliminación de criaderos',
+      autor: 'Promotora de salud', fecha: '2026-09-08', tamano: '4.6 MB', descargas: 31 },
+    { id: 3, tipo: 'PDF', tema: 'Vigilancia epidemiológica', titulo: 'Lista de verificación para llenar la ficha epidemiológica',
+      autor: 'Estadístico de región', fecha: '2026-08-28', tamano: '380 KB', descargas: 72 },
+    { id: 4, tipo: 'Enlace', tema: 'Vacunación', titulo: 'Calendario de puestos móviles de vacunación contra la influenza',
+      autor: 'Equipo de vacunación', fecha: '2026-09-05', tamano: '—', descargas: 26 },
+    { id: 5, tipo: 'Imagen', tema: 'Leishmaniasis', titulo: 'Infografía del ciclo de transmisión de la leishmaniasis',
+      autor: 'Médico general', fecha: '2026-08-22', tamano: '860 KB', descargas: 19 },
+    { id: 6, tipo: 'PDF', tema: 'Malaria', titulo: 'Protocolo de toma de gota gruesa en campo',
+      autor: 'Técnica de laboratorio', fecha: '2026-08-18', tamano: '1.9 MB', descargas: 23 }
+];
+
+// ---- Carreras y especialidades para el registro ----
+const carreras = [
+    'Licenciatura en Gestión y Desarrollo de Software',
+    'Licenciatura en Enfermería',
+    'Doctorado en Medicina',
+    'Licenciatura en Salud Pública',
+    'Tecnología Médica',
+    'Otra carrera o especialidad'
 ];
