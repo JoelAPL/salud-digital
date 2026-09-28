@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temas · Salud Digital</title>
+    <meta name="description" content="Temas de la comunidad de práctica: dengue, influenza, malaria, leishmaniasis, vacunación y vigilancia epidemiológica.">
+    <meta name="theme-color" content="#0b6b5f">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230b6b5f'/><path d='M42 20h16v22h22v16H58v22H42V58H20V42h22z' fill='%23fff'/></svg>">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <a href="#contenido" class="skip-link">Saltar al contenido</a>
+
+    <!-- ===== ENCABEZADO ===== -->
+    <header class="navbar" id="navbar">
+        <div class="container navbar-inner">
+            <a class="brand" href="index.html">
+                <span class="brand-mark" aria-hidden="true">✚</span>
+                <span class="brand-text">
+                    <strong>Salud Digital</strong>
+                    <small>Vigilancia epidemiológica en Panamá</small>
+                </span>
+            </a>
+
+            <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="menu" aria-label="Abrir el menú">
+                <span></span><span></span><span></span>
+            </button>
+
+            <nav class="menu" id="menu" aria-label="Navegación principal">
+                <a href="index.html">Inicio</a>
+                <a href="temas.html">Temas</a>
+                <a href="foro.html">Foro</a>
+                <a href="recursos.html">Recursos</a>
+                <a href="login.html" class="menu-cuenta" data-cuenta>Ingresar</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="contenido">
+        <section class="pagina-head">
+            <div class="container">
+                <p class="migas"><a href="index.html">Inicio</a><span aria-hidden="true">›</span><span aria-current="page">Temas</span></p>
+                <h1>Temas de la comunidad</h1>
+                <p class="section-sub">Cada tema reúne las noticias verificadas, las discusiones del foro y el material compartido sobre un mismo asunto.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="temas-catalogo" id="temasCatalogo"></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== PIE ===== -->
+    <footer class="footer">
+        <div class="container footer-inner">
+            <div class="footer-col">
+                <h3>Salud Digital</h3>
+                <p>Comunidad de práctica en salud. Proyecto académico de Desarrollo de Software 5, Universidad Tecnológica de Panamá.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Fuentes de los datos</h3>
+                <ul>
+                    <li><a href="https://www.minsa.gob.pa/informacion-salud/dengue-2026" target="_blank" rel="noopener">MINSA · Dengue 2026</a></li>
+                    <li><a href="https://www.gorgas.gob.pa/" target="_blank" rel="noopener">Instituto Conmemorativo Gorgas</a></li>
+                    <li><a href="https://www.paho.org/es/panama" target="_blank" rel="noopener">OPS/OMS Panamá</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Equipo</h3>
+                <ul>
+                    <li>Joel Alvarez</li>
+                    <li>Luis Rivera</li>
+                    <li>Emmanuel Concepción</li>
+                </ul>
+            </div>
+        </div>
+        <div class="container footer-legal">
+            <p>
+                Sitio informativo sin fines comerciales. No sustituye la consulta médica.
+                Las fotografías son de dominio público o de licencia libre; el detalle está en
+                <a href="CREDITS.md">CREDITS.md</a>.
+            </p>
+        </div>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/comun.js"></script>
+    <script src="js/temas.js"></script>
+</body>
+</html>

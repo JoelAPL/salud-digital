@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publicación · Salud Digital</title>
+    <meta name="description" content="Publicación del foro de la comunidad de práctica en salud.">
+    <meta name="theme-color" content="#0b6b5f">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230b6b5f'/><path d='M42 20h16v22h22v16H58v22H42V58H20V42h22z' fill='%23fff'/></svg>">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <a href="#contenido" class="skip-link">Saltar al contenido</a>
+
+    <!-- ===== ENCABEZADO ===== -->
+    <header class="navbar" id="navbar">
+        <div class="container navbar-inner">
+            <a class="brand" href="index.html">
+                <span class="brand-mark" aria-hidden="true">✚</span>
+                <span class="brand-text">
+                    <strong>Salud Digital</strong>
+                    <small>Vigilancia epidemiológica en Panamá</small>
+                </span>
+            </a>
+
+            <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="menu" aria-label="Abrir el menú">
+                <span></span><span></span><span></span>
+            </button>
+
+            <nav class="menu" id="menu" aria-label="Navegación principal">
+                <a href="index.html">Inicio</a>
+                <a href="temas.html">Temas</a>
+                <a href="foro.html">Foro</a>
+                <a href="recursos.html">Recursos</a>
+                <a href="login.html" class="menu-cuenta" data-cuenta>Ingresar</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="contenido">
+        <section class="section">
+            <div class="container dos-columnas">
+                <div>
+                    <p class="migas"><a href="index.html">Inicio</a><span aria-hidden="true">›</span><a href="foro.html">Foro</a><span aria-hidden="true">›</span><span aria-current="page" id="migaActual">Publicación</span></p>
+
+                    <article class="post" id="post"></article>
+
+                    <h2 class="respuestas-titulo" id="respuestasTitulo">Respuestas</h2>
+                    <div id="respuestas"></div>
+
+                    <div class="panel-form" id="responder">
+                        <form class="form" id="formRespuesta" novalidate>
+                            <div class="campo">
+                                <label for="respTexto">Tu respuesta</label>
+                                <textarea id="respTexto" name="texto" placeholder="Comparte lo que sabes sobre este caso. Cita la fuente si mencionas cifras." required></textarea>
+                                <p class="campo-error" aria-live="polite"></p>
+                            </div>
+                            <p class="aviso" id="respAviso" role="status" hidden></p>
+                            <div class="fila-entre">
+                                <p class="campo-ayuda">Las respuestas de la demostración se muestran solo en este navegador.</p>
+                                <button type="submit" class="btn-primary">Publicar respuesta</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <aside class="lateral">
+                    <div class="caja">
+                        <h2>Más sobre este tema</h2>
+                        <ul id="relacionados"></ul>
+                    </div>
+                    <div class="caja">
+                        <h2>Antes de aplicar lo leído</h2>
+                        <p>Lo que se comparte en el foro es experiencia de campo. Contrástalo siempre con las guías oficiales del MINSA.</p>
+                    </div>
+                </aside>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== PIE ===== -->
+    <footer class="footer">
+        <div class="container footer-inner">
+            <div class="footer-col">
+                <h3>Salud Digital</h3>
+                <p>Comunidad de práctica en salud. Proyecto académico de Desarrollo de Software 5, Universidad Tecnológica de Panamá.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Fuentes de los datos</h3>
+                <ul>
+                    <li><a href="https://www.minsa.gob.pa/informacion-salud/dengue-2026" target="_blank" rel="noopener">MINSA · Dengue 2026</a></li>
+                    <li><a href="https://www.gorgas.gob.pa/" target="_blank" rel="noopener">Instituto Conmemorativo Gorgas</a></li>
+                    <li><a href="https://www.paho.org/es/panama" target="_blank" rel="noopener">OPS/OMS Panamá</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Equipo</h3>
+                <ul>
+                    <li>Joel Alvarez</li>
+                    <li>Luis Rivera</li>
+                    <li>Emmanuel Concepción</li>
+                </ul>
+            </div>
+        </div>
+        <div class="container footer-legal">
+            <p>
+                Sitio informativo sin fines comerciales. No sustituye la consulta médica.
+                Las fotografías son de dominio público o de licencia libre; el detalle está en
+                <a href="CREDITS.md">CREDITS.md</a>.
+            </p>
+        </div>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/comun.js"></script>
+    <script src="js/publicacion.js"></script>
+</body>
+</html>

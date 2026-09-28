@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear cuenta · Salud Digital</title>
+    <meta name="description" content="Regístrate con tu correo institucional para publicar y participar en la comunidad de práctica en salud.">
+    <meta name="theme-color" content="#0b6b5f">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230b6b5f'/><path d='M42 20h16v22h22v16H58v22H42V58H20V42h22z' fill='%23fff'/></svg>">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <a href="#contenido" class="skip-link">Saltar al contenido</a>
+
+    <!-- ===== ENCABEZADO ===== -->
+    <header class="navbar" id="navbar">
+        <div class="container navbar-inner">
+            <a class="brand" href="index.html">
+                <span class="brand-mark" aria-hidden="true">✚</span>
+                <span class="brand-text">
+                    <strong>Salud Digital</strong>
+                    <small>Vigilancia epidemiológica en Panamá</small>
+                </span>
+            </a>
+
+            <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="menu" aria-label="Abrir el menú">
+                <span></span><span></span><span></span>
+            </button>
+
+            <nav class="menu" id="menu" aria-label="Navegación principal">
+                <a href="index.html">Inicio</a>
+                <a href="temas.html">Temas</a>
+                <a href="foro.html">Foro</a>
+                <a href="recursos.html">Recursos</a>
+                <a href="login.html" class="menu-cuenta" data-cuenta>Ingresar</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="contenido" class="auth">
+        <aside class="auth-panel">
+            <h2>Únete a la comunidad de práctica en salud</h2>
+            <p>Con tu cuenta puedes publicar experiencias de campo, responder en el foro y guardar los recursos que más usas.</p>
+            <ul class="auth-lista">
+                <li>Publica casos y aprendizajes con tu autoría</li>
+                <li>Comparte guías, presentaciones y enlaces</li>
+                <li>Recibe aviso cuando respondan tus temas</li>
+            </ul>
+        </aside>
+
+        <div class="auth-contenido">
+            <div class="auth-card">
+                <div>
+                    <h1>Crear una cuenta</h1>
+                    <p class="section-sub">Usa tu correo institucional de la UTP.</p>
+                </div>
+
+                <p class="aviso aviso-demo">
+                    Versión de demostración: tus datos se guardan solo en este navegador y la
+                    contraseña no se almacena. El registro real llegará con el servidor en PHP y MySQL.
+                </p>
+
+                <form class="form" id="formRegistro" novalidate>
+                    <div class="campo">
+                        <label for="regNombre">Nombre completo</label>
+                        <input type="text" id="regNombre" name="nombre" autocomplete="name" required>
+                        <p class="campo-error" aria-live="polite"></p>
+                    </div>
+
+                    <div class="campo">
+                        <label for="regCorreo">Correo institucional</label>
+                        <input type="email" id="regCorreo" name="correo" autocomplete="email" placeholder="nombre.apellido@utp.ac.pa" required aria-describedby="regCorreoAyuda">
+                        <p class="campo-ayuda" id="regCorreoAyuda">Debe terminar en @utp.ac.pa</p>
+                        <p class="campo-error" aria-live="polite"></p>
+                    </div>
+
+                    <div class="form-fila">
+                        <div class="campo">
+                            <label for="regRol">Perfil</label>
+                            <select id="regRol" name="rol" required>
+                                <option value="">Selecciona…</option>
+                                <option>Estudiante</option>
+                                <option>Docente</option>
+                            </select>
+                            <p class="campo-error" aria-live="polite"></p>
+                        </div>
+                        <div class="campo">
+                            <label for="regCarrera">Carrera o especialidad</label>
+                            <select id="regCarrera" name="carrera" required></select>
+                            <p class="campo-error" aria-live="polite"></p>
+                        </div>
+                    </div>
+
+                    <div class="form-fila">
+                        <div class="campo">
+                            <label for="regClave">Contraseña</label>
+                            <input type="password" id="regClave" name="clave" autocomplete="new-password" required aria-describedby="regClaveAyuda">
+                            <p class="campo-ayuda" id="regClaveAyuda">Mínimo 8 caracteres, con letras y números.</p>
+                            <p class="campo-error" aria-live="polite"></p>
+                        </div>
+                        <div class="campo">
+                            <label for="regClave2">Confirmar contraseña</label>
+                            <input type="password" id="regClave2" name="clave2" autocomplete="new-password" required>
+                            <p class="campo-error" aria-live="polite"></p>
+                        </div>
+                    </div>
+
+                    <div class="campo">
+                        <label class="check" for="regAcepto">
+                            <input type="checkbox" id="regAcepto" name="acepto" required>
+                            <span>Acepto el tratamiento de mis datos personales conforme a la Ley 81 de 2019 de la República de Panamá.</span>
+                        </label>
+                        <p class="campo-error" aria-live="polite"></p>
+                    </div>
+
+                    <p class="aviso" id="regAviso" role="status" hidden></p>
+
+                    <button type="submit" class="btn-primary btn-bloque">Crear mi cuenta</button>
+                    <p class="form-pie">¿Ya tienes cuenta? <a href="login.html">Inicia sesión</a></p>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- ===== PIE ===== -->
+    <footer class="footer">
+        <div class="container footer-inner">
+            <div class="footer-col">
+                <h3>Salud Digital</h3>
+                <p>Comunidad de práctica en salud. Proyecto académico de Desarrollo de Software 5, Universidad Tecnológica de Panamá.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Fuentes de los datos</h3>
+                <ul>
+                    <li><a href="https://www.minsa.gob.pa/informacion-salud/dengue-2026" target="_blank" rel="noopener">MINSA · Dengue 2026</a></li>
+                    <li><a href="https://www.gorgas.gob.pa/" target="_blank" rel="noopener">Instituto Conmemorativo Gorgas</a></li>
+                    <li><a href="https://www.paho.org/es/panama" target="_blank" rel="noopener">OPS/OMS Panamá</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Equipo</h3>
+                <ul>
+                    <li>Joel Alvarez</li>
+                    <li>Luis Rivera</li>
+                    <li>Emmanuel Concepción</li>
+                </ul>
+            </div>
+        </div>
+        <div class="container footer-legal">
+            <p>
+                Sitio informativo sin fines comerciales. No sustituye la consulta médica.
+                Las fotografías son de dominio público o de licencia libre; el detalle está en
+                <a href="CREDITS.md">CREDITS.md</a>.
+            </p>
+        </div>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/comun.js"></script>
+    <script src="js/acceso.js"></script>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi perfil · Salud Digital</title>
+    <meta name="description" content="Perfil del miembro de la comunidad de práctica en salud.">
+    <meta name="theme-color" content="#0b6b5f">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230b6b5f'/><path d='M42 20h16v22h22v16H58v22H42V58H20V42h22z' fill='%23fff'/></svg>">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <a href="#contenido" class="skip-link">Saltar al contenido</a>
+
+    <!-- ===== ENCABEZADO ===== -->
+    <header class="navbar" id="navbar">
+        <div class="container navbar-inner">
+            <a class="brand" href="index.html">
+                <span class="brand-mark" aria-hidden="true">✚</span>
+                <span class="brand-text">
+                    <strong>Salud Digital</strong>
+                    <small>Vigilancia epidemiológica en Panamá</small>
+                </span>
+            </a>
+
+            <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="menu" aria-label="Abrir el menú">
+                <span></span><span></span><span></span>
+            </button>
+
+            <nav class="menu" id="menu" aria-label="Navegación principal">
+                <a href="index.html">Inicio</a>
+                <a href="temas.html">Temas</a>
+                <a href="foro.html">Foro</a>
+                <a href="recursos.html">Recursos</a>
+                <a href="login.html" class="menu-cuenta" data-cuenta>Ingresar</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="contenido">
+        <section class="pagina-head">
+            <div class="container">
+                <p class="migas"><a href="index.html">Inicio</a><span aria-hidden="true">›</span><span aria-current="page">Mi perfil</span></p>
+                <p class="aviso aviso-demo" id="perfilDemo" hidden>
+                    Estás viendo un perfil de demostración. <a href="registro.html">Crea una cuenta</a> o
+                    <a href="login.html">inicia sesión</a> para ver el tuyo.
+                </p>
+                <div class="perfil-cabecera">
+                    <div class="avatar-grande" id="perfilAvatar" aria-hidden="true"></div>
+                    <div class="perfil-datos">
+                        <h1 id="perfilNombre"></h1>
+                        <p class="perfil-rol" id="perfilRol"></p>
+                        <p id="perfilCarrera"></p>
+                        <p id="perfilDesde"></p>
+                    </div>
+                    <button type="button" class="btn-secondary" id="btnCerrarSesion" hidden>Cerrar sesión</button>
+                </div>
+                <dl class="perfil-stats" id="perfilStats"></dl>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="tabs" role="tablist" aria-label="Secciones del perfil">
+                    <button type="button" class="tab" role="tab" id="tabPublicaciones" aria-controls="panelPublicaciones" aria-selected="true">Mis publicaciones</button>
+                    <button type="button" class="tab" role="tab" id="tabGuardados" aria-controls="panelGuardados" aria-selected="false" tabindex="-1">Guardados</button>
+                    <button type="button" class="tab" role="tab" id="tabEditar" aria-controls="panelEditar" aria-selected="false" tabindex="-1">Editar perfil</button>
+                </div>
+
+                <div role="tabpanel" id="panelPublicaciones" aria-labelledby="tabPublicaciones">
+                    <div class="foro-lista" id="listaPublicaciones"></div>
+                </div>
+
+                <div role="tabpanel" id="panelGuardados" aria-labelledby="tabGuardados" hidden>
+                    <div class="foro-lista" id="listaGuardados"></div>
+                    <p class="vacio" id="guardadosVacio" hidden>Aún no guardas publicaciones. Usa el botón «Guardar» en cualquier tema del foro.</p>
+                </div>
+
+                <div role="tabpanel" id="panelEditar" aria-labelledby="tabEditar" hidden>
+                    <div class="panel-form">
+                        <form class="form" id="formPerfil" novalidate>
+                            <div class="campo">
+                                <label for="perNombre">Nombre completo</label>
+                                <input type="text" id="perNombre" name="nombre" autocomplete="name" required>
+                                <p class="campo-error" aria-live="polite"></p>
+                            </div>
+                            <div class="form-fila">
+                                <div class="campo">
+                                    <label for="perRol">Perfil</label>
+                                    <select id="perRol" name="rol">
+                                        <option>Estudiante</option>
+                                        <option>Docente</option>
+                                    </select>
+                                </div>
+                                <div class="campo">
+                                    <label for="perCarrera">Carrera o especialidad</label>
+                                    <select id="perCarrera" name="carrera"></select>
+                                </div>
+                            </div>
+                            <div class="campo">
+                                <label for="perDescripcion">Sobre mí</label>
+                                <textarea id="perDescripcion" name="descripcion" maxlength="280" placeholder="Área de interés, lugar de práctica o experiencia."></textarea>
+                                <p class="campo-ayuda">Hasta 280 caracteres.</p>
+                            </div>
+                            <p class="aviso" id="perAviso" role="status" hidden></p>
+                            <button type="submit" class="btn-primary">Guardar cambios</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== PIE ===== -->
+    <footer class="footer">
+        <div class="container footer-inner">
+            <div class="footer-col">
+                <h3>Salud Digital</h3>
+                <p>Comunidad de práctica en salud. Proyecto académico de Desarrollo de Software 5, Universidad Tecnológica de Panamá.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Fuentes de los datos</h3>
+                <ul>
+                    <li><a href="https://www.minsa.gob.pa/informacion-salud/dengue-2026" target="_blank" rel="noopener">MINSA · Dengue 2026</a></li>
+                    <li><a href="https://www.gorgas.gob.pa/" target="_blank" rel="noopener">Instituto Conmemorativo Gorgas</a></li>
+                    <li><a href="https://www.paho.org/es/panama" target="_blank" rel="noopener">OPS/OMS Panamá</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Equipo</h3>
+                <ul>
+                    <li>Joel Alvarez</li>
+                    <li>Luis Rivera</li>
+                    <li>Emmanuel Concepción</li>
+                </ul>
+            </div>
+        </div>
+        <div class="container footer-legal">
+            <p>
+                Sitio informativo sin fines comerciales. No sustituye la consulta médica.
+                Las fotografías son de dominio público o de licencia libre; el detalle está en
+                <a href="CREDITS.md">CREDITS.md</a>.
+            </p>
+        </div>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/comun.js"></script>
+    <script src="js/perfil.js"></script>
+</body>
+</html>

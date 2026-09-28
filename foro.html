@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foro · Salud Digital</title>
+    <meta name="description" content="Foro de la comunidad de práctica en salud: preguntas y experiencias de campo.">
+    <meta name="theme-color" content="#0b6b5f">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230b6b5f'/><path d='M42 20h16v22h22v16H58v22H42V58H20V42h22z' fill='%23fff'/></svg>">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <a href="#contenido" class="skip-link">Saltar al contenido</a>
+
+    <!-- ===== ENCABEZADO ===== -->
+    <header class="navbar" id="navbar">
+        <div class="container navbar-inner">
+            <a class="brand" href="index.html">
+                <span class="brand-mark" aria-hidden="true">✚</span>
+                <span class="brand-text">
+                    <strong>Salud Digital</strong>
+                    <small>Vigilancia epidemiológica en Panamá</small>
+                </span>
+            </a>
+
+            <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="menu" aria-label="Abrir el menú">
+                <span></span><span></span><span></span>
+            </button>
+
+            <nav class="menu" id="menu" aria-label="Navegación principal">
+                <a href="index.html">Inicio</a>
+                <a href="temas.html">Temas</a>
+                <a href="foro.html">Foro</a>
+                <a href="recursos.html">Recursos</a>
+                <a href="login.html" class="menu-cuenta" data-cuenta>Ingresar</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="contenido">
+        <section class="pagina-head">
+            <div class="container">
+                <p class="migas"><a href="index.html">Inicio</a><span aria-hidden="true">›</span><span aria-current="page">Foro</span></p>
+                <div class="pagina-head-fila">
+                    <div>
+                        <h1>Foro de la comunidad <span class="badge-demo">contenido de demostración</span></h1>
+                        <p class="section-sub">Pregunta, comparte tu experiencia de campo y marca las respuestas que te sirvieron.</p>
+                    </div>
+                    <button type="button" class="btn-primary" id="btnNuevoTema" aria-expanded="false" aria-controls="panelNuevo">+ Abrir un tema</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container dos-columnas">
+                <div>
+                    <div class="panel-nuevo" id="panelNuevo" hidden>
+                        <h2>Abrir un tema nuevo</h2>
+                        <form class="form" id="formTema" novalidate>
+                            <div class="campo">
+                                <label for="temaTitulo">Título</label>
+                                <input type="text" id="temaTitulo" name="titulo" maxlength="120" placeholder="Resume tu pregunta o experiencia en una frase" required>
+                                <p class="campo-error" aria-live="polite"></p>
+                            </div>
+                            <div class="campo">
+                                <label for="temaCategoria">Tema</label>
+                                <select id="temaCategoria" name="categoria" required></select>
+                                <p class="campo-error" aria-live="polite"></p>
+                            </div>
+                            <div class="campo">
+                                <label for="temaContenido">Contenido</label>
+                                <textarea id="temaContenido" name="contenido" placeholder="Describe el caso, lo que hiciste y lo que aprendiste." required></textarea>
+                                <p class="campo-error" aria-live="polite"></p>
+                            </div>
+                            <p class="aviso" id="temaAviso" role="status" hidden></p>
+                            <div class="fila-entre">
+                                <button type="button" class="btn-secondary" id="btnCancelarTema">Cancelar</button>
+                                <button type="submit" class="btn-primary">Publicar tema</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <form class="herramientas" id="filtrosForo" role="search">
+                        <div class="campo campo-buscar">
+                            <label for="foroBuscar">Buscar en el foro</label>
+                            <input type="search" id="foroBuscar" placeholder="Palabra clave, autor o tema…">
+                        </div>
+                        <div class="campo">
+                            <label for="foroTema">Tema</label>
+                            <select id="foroTema"></select>
+                        </div>
+                        <div class="campo">
+                            <label for="foroOrden">Ordenar por</label>
+                            <select id="foroOrden">
+                                <option value="recientes">Más recientes</option>
+                                <option value="respuestas">Más respondidos</option>
+                                <option value="util">Más útiles</option>
+                            </select>
+                        </div>
+                    </form>
+
+                    <div class="foro-lista" id="foroLista"></div>
+                    <p class="vacio" id="foroVacio" hidden>No hay temas que coincidan con la búsqueda.</p>
+                </div>
+
+                <aside class="lateral">
+                    <div class="caja">
+                        <h2>Normas de la comunidad</h2>
+                        <ul>
+                            <li>Cita la fuente oficial cuando compartas cifras.</li>
+                            <li>No publiques datos que identifiquen a pacientes.</li>
+                            <li>Reporta la información errónea para que un moderador la revise.</li>
+                        </ul>
+                    </div>
+                    <div class="caja">
+                        <h2>Explorar por tema</h2>
+                        <ul id="foroTemasLateral"></ul>
+                    </div>
+                    <div class="caja">
+                        <h2>¿Es una urgencia?</h2>
+                        <p>El foro no sustituye la atención médica. Llama al <a href="tel:169">169</a> para orientación o al <a href="tel:911">911</a> en emergencias.</p>
+                    </div>
+                </aside>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== PIE ===== -->
+    <footer class="footer">
+        <div class="container footer-inner">
+            <div class="footer-col">
+                <h3>Salud Digital</h3>
+                <p>Comunidad de práctica en salud. Proyecto académico de Desarrollo de Software 5, Universidad Tecnológica de Panamá.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Fuentes de los datos</h3>
+                <ul>
+                    <li><a href="https://www.minsa.gob.pa/informacion-salud/dengue-2026" target="_blank" rel="noopener">MINSA · Dengue 2026</a></li>
+                    <li><a href="https://www.gorgas.gob.pa/" target="_blank" rel="noopener">Instituto Conmemorativo Gorgas</a></li>
+                    <li><a href="https://www.paho.org/es/panama" target="_blank" rel="noopener">OPS/OMS Panamá</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Equipo</h3>
+                <ul>
+                    <li>Joel Alvarez</li>
+                    <li>Luis Rivera</li>
+                    <li>Emmanuel Concepción</li>
+                </ul>
+            </div>
+        </div>
+        <div class="container footer-legal">
+            <p>
+                Sitio informativo sin fines comerciales. No sustituye la consulta médica.
+                Las fotografías son de dominio público o de licencia libre; el detalle está en
+                <a href="CREDITS.md">CREDITS.md</a>.
+            </p>
+        </div>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/comun.js"></script>
+    <script src="js/foro.js"></script>
+</body>
+</html>
