@@ -1,0 +1,34 @@
+/* =========================================================================
+   Salud Digital - Catálogo de temas
+   Tarjetas de cada tema con sus cifras.
+   ========================================================================= */
+
+/* ===== Catálogo de temas ===== */
+
+.temas-catalogo {
+    display: grid; gap: 18px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.tema-card {
+    background: var(--blanco); border: 1px solid var(--linea); border-radius: var(--radio);
+    padding: 24px; display: flex; flex-direction: column; gap: 10px;
+    box-shadow: var(--sombra); text-decoration: none; color: inherit;
+    transition: transform .18s ease, box-shadow .18s ease;
+}
+.tema-card:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(16, 33, 30, .13); }
+
+.tema-icono {
+    width: 48px; height: 48px; border-radius: 12px;
+    display: grid; place-items: center; font-size: 24px;
+    background: var(--verde-claro);
+}
+.tema-card h2 { font-size: 1.2rem; letter-spacing: -.3px; margin-top: 4px; }
+.tema-card p { margin: 0; font-size: 14.5px; color: var(--gris); }
+
+.tema-cifras {
+    display: flex; gap: 16px; margin-top: auto; padding-top: 14px;
+    border-top: 1px solid var(--linea); font-size: 13px; color: var(--gris);
+}
+.tema-cifras strong { color: var(--verde-oscuro); font-size: 15px; }
+.tema-ir { margin-left: auto; font-weight: 600; color: var(--verde); }

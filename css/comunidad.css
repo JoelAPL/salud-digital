@@ -1,0 +1,144 @@
+/* =========================================================================
+   Salud Digital - Comunidad
+   Foro, publicación y componentes que reutilizan recursos y perfil
+   (barra de búsqueda, lista de temas, paneles y columna lateral).
+   ========================================================================= */
+
+/* ===== Barra de herramientas (buscar y filtrar) ===== */
+
+.herramientas {
+    display: flex; gap: 12px; flex-wrap: wrap; align-items: flex-end;
+    margin-bottom: 24px;
+}
+.herramientas .campo { flex: 1 1 220px; }
+.herramientas .campo-buscar { flex: 2 1 280px; }
+
+/* ===== Foro ===== */
+
+.foro-lista { display: flex; flex-direction: column; gap: 12px; }
+
+.foro-item {
+    display: grid; grid-template-columns: 76px minmax(0, 1fr); gap: 18px;
+    background: var(--blanco); border: 1px solid var(--linea); border-radius: var(--radio);
+    padding: 18px 20px; box-shadow: var(--sombra);
+}
+
+.foro-contador {
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    background: var(--verde-claro); border-radius: 10px; padding: 10px 6px;
+    color: var(--verde-oscuro); text-align: center;
+}
+.foro-contador strong { font-size: 1.4rem; line-height: 1.1; }
+.foro-contador span { font-size: 11.5px; font-weight: 600; }
+
+.foro-item h2 { font-size: 1.08rem; letter-spacing: -.3px; margin-top: 8px; }
+.foro-item h2 a { color: inherit; text-decoration: none; }
+.foro-item h2 a:hover { color: var(--verde-oscuro); text-decoration: underline; }
+.foro-item p { margin: 6px 0 0; font-size: 14.5px; color: var(--gris); }
+
+.foro-meta {
+    display: flex; flex-wrap: wrap; gap: 6px 14px; margin-top: 10px;
+    font-size: 12.5px; color: var(--gris);
+}
+.foro-meta .autor { font-weight: 600; color: var(--verde-oscuro); }
+
+.chip-claro {
+    display: inline-block; padding: 3px 10px; border-radius: 999px;
+    background: var(--fondo); border: 1px solid var(--linea);
+    font-size: 12px; font-weight: 600; color: var(--gris);
+}
+
+.panel-nuevo {
+    background: var(--blanco); border: 1px solid var(--linea); border-radius: var(--radio);
+    padding: 24px; margin-bottom: 24px; box-shadow: var(--sombra);
+}
+.panel-nuevo h2 { font-size: 1.2rem; margin-bottom: 16px; }
+
+.dos-columnas {
+    display: grid; gap: 28px; align-items: start;
+    grid-template-columns: minmax(0, 1fr) 300px;
+}
+
+.lateral { display: flex; flex-direction: column; gap: 18px; }
+
+.caja {
+    background: var(--blanco); border: 1px solid var(--linea); border-radius: var(--radio);
+    padding: 20px;
+}
+.caja h2, .caja h3 { font-size: 15px; text-transform: uppercase; letter-spacing: .6px; color: var(--gris); }
+.caja ul { list-style: none; margin: 12px 0 0; padding: 0; display: flex; flex-direction: column; gap: 8px; font-size: 14.5px; }
+.caja li a { text-decoration: none; }
+.caja li a:hover { text-decoration: underline; }
+.caja p { margin: 10px 0 0; font-size: 14px; color: var(--gris); }
+
+/* ===== Publicación ===== */
+
+.post {
+    background: var(--blanco); border: 1px solid var(--linea); border-radius: var(--radio);
+    padding: 28px; box-shadow: var(--sombra);
+}
+.post h1 { font-size: clamp(1.4rem, 3vw, 1.9rem); letter-spacing: -.5px; margin-top: 12px; }
+
+.post-autor { display: flex; align-items: center; gap: 12px; margin-top: 18px; }
+.post-autor strong { display: block; font-size: 15px; }
+.post-autor span { font-size: 13px; color: var(--gris); }
+
+.avatar {
+    width: 42px; height: 42px; border-radius: 50%; flex: none;
+    display: grid; place-items: center;
+    background: var(--verde-claro); color: var(--verde-oscuro);
+    font-size: 14px; font-weight: 700;
+}
+
+.post-cuerpo { margin-top: 20px; font-size: 16px; }
+.post-cuerpo p { margin: 0 0 14px; }
+
+.post-acciones {
+    display: flex; flex-wrap: wrap; gap: 8px;
+    margin-top: 8px; padding-top: 18px; border-top: 1px solid var(--linea);
+}
+
+.respuestas-titulo { margin: 36px 0 16px; font-size: 1.2rem; }
+
+.respuesta {
+    background: var(--blanco); border: 1px solid var(--linea); border-radius: var(--radio);
+    padding: 18px 20px; margin-bottom: 12px;
+}
+.respuesta.es-mejor { border-color: var(--verde); box-shadow: 0 0 0 1px var(--verde) inset; }
+.respuesta .post-autor { margin-top: 0; }
+.respuesta p { margin: 12px 0 0; font-size: 15px; }
+.respuesta .post-acciones { border-top: 0; padding-top: 0; margin-top: 12px; }
+
+.respuestas-hijas { margin: 12px 0 0 24px; padding-left: 18px; border-left: 2px solid var(--linea); }
+.respuestas-hijas .respuesta { margin-bottom: 0; }
+
+.insignia-mejor {
+    display: inline-block; margin-left: 8px; padding: 2px 9px; border-radius: 999px;
+    background: var(--verde); color: #fff; font-size: 11px; font-weight: 700;
+    letter-spacing: .3px; text-transform: uppercase; vertical-align: middle;
+}
+
+/* ===== Panel con formulario ===== */
+
+.panel-form {
+    background: var(--blanco); border: 1px solid var(--linea); border-radius: var(--radio);
+    padding: 28px; max-width: 720px;
+}
+
+/* ===== Adaptación a pantallas pequeñas ===== */
+
+@media (max-width: 1024px) {
+    .dos-columnas { grid-template-columns: minmax(0, 1fr) 250px; }
+}
+
+@media (max-width: 860px) {
+    .dos-columnas { grid-template-columns: 1fr; }
+    .post { padding: 22px 20px; }
+}
+
+@media (max-width: 520px) {
+    .foro-item { grid-template-columns: 1fr; gap: 10px; }
+    .foro-contador { flex-direction: row; gap: 6px; justify-content: flex-start; padding: 6px 10px; align-self: flex-start; }
+    .foro-contador strong { font-size: 1rem; }
+    .respuestas-hijas { margin-left: 6px; padding-left: 12px; }
+}

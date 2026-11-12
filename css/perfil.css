@@ -1,0 +1,47 @@
+/* =========================================================================
+   Salud Digital - Perfil
+   Cabecera, cifras y pestañas del perfil.
+   ========================================================================= */
+
+/* ===== Perfil ===== */
+
+.perfil-cabecera {
+    display: flex; align-items: center; gap: 22px; flex-wrap: wrap;
+}
+
+.avatar-grande {
+    width: 96px; height: 96px; border-radius: 50%; flex: none;
+    display: grid; place-items: center;
+    background: var(--verde); color: #fff; font-size: 34px; font-weight: 700;
+    box-shadow: 0 0 0 4px var(--verde-claro);
+}
+
+.perfil-datos { flex: 1 1 280px; }
+.perfil-datos h1 { font-size: clamp(1.5rem, 3.2vw, 2rem); letter-spacing: -.5px; }
+.perfil-datos p { margin: 4px 0 0; color: var(--gris); }
+.perfil-rol { font-weight: 600; color: var(--verde-oscuro) !important; }
+
+.perfil-stats {
+    display: grid; gap: 1px; margin: 28px 0 0;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    background: var(--linea); border: 1px solid var(--linea);
+    border-radius: var(--radio); overflow: hidden;
+}
+
+.tabs {
+    display: flex; gap: 4px; border-bottom: 1px solid var(--linea);
+    margin-bottom: 24px; overflow-x: auto;
+}
+.tab {
+    padding: 12px 16px; border: 0; background: none; cursor: pointer;
+    font-family: inherit; font-size: 15px; font-weight: 600; color: var(--gris);
+    border-bottom: 3px solid transparent; margin-bottom: -1px; white-space: nowrap;
+}
+.tab:hover { color: var(--verde-oscuro); }
+.tab[aria-selected="true"] { color: var(--verde-oscuro); border-bottom-color: var(--verde); }
+
+/* ===== Adaptación a pantallas pequeñas ===== */
+
+@media (max-width: 520px) {
+    .avatar-grande { width: 76px; height: 76px; font-size: 27px; }
+}

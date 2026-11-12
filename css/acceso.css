@@ -1,0 +1,53 @@
+/* =========================================================================
+   Salud Digital - Registro e inicio de sesión
+   Pantalla dividida con el panel de imagen y el formulario.
+   ========================================================================= */
+
+/* ===== Acceso ===== */
+
+.auth {
+    display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+    min-height: calc(100vh - 69px);
+}
+
+.auth-panel {
+    position: relative; color: #fff; padding: 64px 56px;
+    background: #08403a url("../assets/img/hero-panama.jpg") center / cover no-repeat;
+    display: flex; flex-direction: column; justify-content: flex-end; gap: 18px;
+}
+.auth-panel::before {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(160deg, rgba(6, 45, 40, .7) 0%, rgba(6, 45, 40, .94) 100%);
+}
+.auth-panel > * { position: relative; }
+.auth-panel h2 { font-size: clamp(1.5rem, 2.6vw, 2rem); letter-spacing: -.5px; }
+.auth-panel p { margin: 0; color: rgba(255, 255, 255, .88); max-width: 46ch; }
+
+.auth-lista { list-style: none; margin: 6px 0 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+.auth-lista li { display: flex; gap: 10px; font-size: 15px; color: rgba(255, 255, 255, .92); }
+.auth-lista li::before { content: "✓"; font-weight: 700; color: #9fe0d2; }
+
+.auth-contenido { display: grid; place-items: center; padding: 48px 24px; }
+
+.auth-card { width: 100%; max-width: 460px; display: flex; flex-direction: column; gap: 22px; }
+.auth-card h1 { font-size: 1.85rem; letter-spacing: -.6px; }
+.auth-card .section-sub { margin-top: 6px; }
+
+.enlace-derecha { align-self: flex-end; font-size: 13.5px; font-weight: 600; text-decoration: none; }
+.enlace-derecha:hover { text-decoration: underline; }
+
+/* ===== Adaptación a pantallas pequeñas ===== */
+
+@media (max-width: 1024px) {
+    .auth-panel { padding: 48px 36px; }
+}
+
+@media (max-width: 860px) {
+    .auth { grid-template-columns: 1fr; min-height: 0; }
+    .auth-panel { padding: 36px 20px; }
+    .auth-panel .auth-lista { display: none; }
+}
+
+@media (max-width: 520px) {
+    .auth-contenido { padding: 32px 20px; }
+}
