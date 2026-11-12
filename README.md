@@ -73,7 +73,13 @@ salud-digital/
 ├── publicacion.html    # Vista de un tema del foro
 ├── recursos.html       # Repositorio de recursos
 ├── perfil.html         # Perfil del usuario
-├── css/styles.css      # Estilos, adaptables a computadora, tableta y teléfono
+├── css/styles.css      # Base y componentes compartidos por todas las páginas
+├── css/inicio.css      # Portada, panorama, noticias, estadísticas y modal
+├── css/acceso.css      # Registro e inicio de sesión
+├── css/temas.css       # Catálogo de temas
+├── css/comunidad.css   # Foro y publicación (también en recursos y perfil)
+├── css/recursos.css    # Tabla del repositorio
+├── css/perfil.css      # Cabecera, cifras y pestañas del perfil
 ├── js/data.js          # Cifras, noticias, temas y recursos, con sus fuentes
 ├── js/comun.js         # Menú, sesión de demostración y validación compartida
 ├── js/main.js          # Inicio: render, filtros, buscador y modal
