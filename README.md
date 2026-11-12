@@ -20,6 +20,23 @@ Panamá.
 - **Comunidad de práctica** — vista previa del foro. Está marcada como
   contenido de demostración para no confundirla con los datos oficiales.
 
+## Páginas
+
+| Página | Qué hace |
+|---|---|
+| `index.html` | Inicio: panorama, noticias, estadísticas, recursos y foro |
+| `registro.html` | Crear cuenta con correo institucional `@utp.ac.pa` |
+| `login.html` | Iniciar sesión |
+| `temas.html` | Catálogo de temas con sus noticias, discusiones y recursos |
+| `foro.html` | Buscar, filtrar y ordenar temas; abrir un tema nuevo |
+| `publicacion.html` | Un tema con sus respuestas: útil, guardar, reportar y responder |
+| `recursos.html` | Material de la comunidad y contactos oficiales |
+| `perfil.html` | Publicaciones, guardados y edición del perfil |
+
+La cuenta y lo que se publica en el foro son una **sesión de demostración**:
+se guardan solo en el navegador (`localStorage`) y la contraseña nunca se
+almacena. Se reemplazará por PHP y MySQL en la etapa de servidor.
+
 ## Origen de los datos
 
 Ninguna cifra del sitio es inventada. Todas provienen de los informes
@@ -48,10 +65,24 @@ También se publica automáticamente con GitHub Pages desde la rama principal.
 
 ```
 salud-digital/
-├── index.html          # Estructura de la página
-├── css/styles.css      # Estilos, adaptables a móvil
-├── js/data.js          # Cifras, noticias y recursos, con sus fuentes
-├── js/main.js          # Render, filtros, buscador y modal
+├── index.html          # Inicio
+├── registro.html       # Crear cuenta
+├── login.html          # Iniciar sesión
+├── temas.html          # Catálogo de temas
+├── foro.html           # Foro de la comunidad
+├── publicacion.html    # Vista de un tema del foro
+├── recursos.html       # Repositorio de recursos
+├── perfil.html         # Perfil del usuario
+├── css/styles.css      # Estilos, adaptables a computadora, tableta y teléfono
+├── js/data.js          # Cifras, noticias, temas y recursos, con sus fuentes
+├── js/comun.js         # Menú, sesión de demostración y validación compartida
+├── js/main.js          # Inicio: render, filtros, buscador y modal
+├── js/acceso.js        # Registro e inicio de sesión
+├── js/temas.js         # Catálogo de temas
+├── js/foro.js          # Lista del foro y nuevo tema
+├── js/publicacion.js   # Respuestas, útil, guardar y reportar
+├── js/recursos.js      # Tabla de recursos y formulario para compartir
+├── js/perfil.js        # Perfil, pestañas y edición
 ├── assets/img/         # Fotografías de licencia libre
 └── CREDITS.md          # Atribución de imágenes y fuentes
 ```
