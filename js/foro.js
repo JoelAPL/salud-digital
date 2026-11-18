@@ -7,11 +7,14 @@
 
     var SD = window.SD;
     var NOMBRES_TEMAS = temasCatalogo.map(function (t) { return t.nombre; });
+    var EXAMEN = 'Examen';
 
     function visibles() {
         var texto = SD.$('#foroBuscar').value.trim().toLowerCase();
         var tema = SD.$('#foroTema').value;
         var orden = SD.$('#foroOrden').value;
+
+        if (tema === EXAMEN) tema = '';
 
         var lista = SD.temasDelForo().filter(function (t) {
             if (tema && t.categoria !== tema) return false;
@@ -35,7 +38,7 @@
 
     function pintarFiltros() {
         var sel = SD.$('#foroTema');
-        sel.innerHTML = SD.opciones(NOMBRES_TEMAS, 'Todos los temas');
+        sel.innerHTML = SD.opciones([EXAMEN].concat(NOMBRES_TEMAS), 'Todos los temas');
         var inicial = SD.parametro('tema');
         if (inicial && NOMBRES_TEMAS.indexOf(inicial) !== -1) sel.value = inicial;
 
@@ -46,7 +49,37 @@
         var filtros = SD.$('#filtrosForo');
         filtros.addEventListener('input', pintarLista);
         filtros.addEventListener('change', pintarLista);
+
+        sel.addEventListener('change', function () {
+            if (sel.value === EXAMEN) abrirExamen();
+        });
         filtros.addEventListener('submit', function (e) { e.preventDefault(); });
+    }
+
+    // ---------- modal del examen ----------
+
+    function abrirExamen() {
+        SD.$('#modalExamen').hidden = false;
+        document.body.classList.add('sin-scroll');
+        SD.$('#btnAceptarExamen').focus();
+    }
+
+    // Al cerrar, el selector vuelve a "Todos los temas" y el foco regresa a él.
+    function cerrarExamen() {
+        var sel = SD.$('#foroTema');
+        SD.$('#modalExamen').hidden = true;
+        document.body.classList.remove('sin-scroll');
+        sel.value = '';
+        sel.focus();
+    }
+
+    function activarModalExamen() {
+        SD.$('#modalExamen').addEventListener('click', function (e) {
+            if (e.target.closest('[data-cerrar]')) cerrarExamen();
+        });
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && !SD.$('#modalExamen').hidden) cerrarExamen();
+        });
     }
 
     // ---------- abrir un tema nuevo ----------
@@ -115,5 +148,6 @@
         pintarFiltros();
         pintarLista();
         nuevoTema();
+        activarModalExamen();
     });
 })();

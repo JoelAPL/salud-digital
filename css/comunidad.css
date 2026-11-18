@@ -142,3 +142,18 @@
     .foro-contador strong { font-size: 1rem; }
     .respuestas-hijas { margin-left: 6px; padding-left: 12px; }
 }
+
+/* ===== Foro: modal del examen ===== */
+
+.modal { position: fixed; inset: 0; z-index: 1000; display: grid; place-items: center; padding: 20px; }
+.modal[hidden] { display: none; }
+.modal-backdrop { position: absolute; inset: 0; background: rgba(8, 26, 23, .72); }
+
+.modal-card {
+    position: relative; background: var(--blanco);
+    border-radius: 16px; width: 100%; max-width: 360px;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, .35);
+}
+
+.modal-cuerpo { padding: 28px 24px 24px; text-align: center; }
+.modal-cuerpo p { margin: 0 0 20px; font-size: 18px; font-weight: 600; color: var(--tinta); }
